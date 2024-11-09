@@ -10,6 +10,8 @@ client = anthropic.Anthropic(
 )
 
 
+message = None
+
 def createQuestion(theme, level):
 
     if (len(API_KEY) == 0):
