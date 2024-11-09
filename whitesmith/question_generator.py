@@ -10,9 +10,11 @@ client = anthropic.Anthropic(
 )
 
 
-message = None
+
 
 def createQuestion(theme, level):
+
+    message = None
 
     if (len(API_KEY) == 0):
         return "api key not defined."
