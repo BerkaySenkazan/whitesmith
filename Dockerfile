@@ -60,6 +60,8 @@ COPY --from=builder $VENV_PATH $VENV_PATH
 
 ENV PATH="${VENV_PATH}/bin:${PATH}"
 
+ENV DATABASE_URL=$DATABASE_URL
+
 USER nonroot
 
 EXPOSE 8000/tcp
