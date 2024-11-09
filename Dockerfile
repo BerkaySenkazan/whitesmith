@@ -36,11 +36,6 @@ RUN apt-get update && \
 # editable mode: https://github.com/python-poetry/poetry/issues/1382
 # Otherwise venv with source code would need to be copied to final image.
 COPY . $PYSETUP_PATH
-USER root
-COPY build/ $PYSETUP_PATH/build/
-WORKDIR $PYSETUP_PATH
-RUN chmod +x build/install.sh
-USER appuser 
 WORKDIR $PYSETUP_PATH
 RUN make install && \
     poetry build && \
