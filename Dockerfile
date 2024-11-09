@@ -2,7 +2,6 @@
 FROM python@sha256:a9cf2d58b33ba6f273e80d1f6272186d8930c062fa2a2abc65f35bdf4609a032 as builder
 LABEL maintainer="Berkay, senkazanberkay@gmail.com"
 
-RUN chmod 777 -R whitesmith
 
 # Configure environment variables
 ENV PYTHONUNBUFFERED=1 \
