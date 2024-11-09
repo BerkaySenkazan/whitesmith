@@ -1,7 +1,6 @@
 import anthropic
 import spacy
 import os
-
 client = anthropic.Anthropic(
     api_key= os.getenv("API_KEY")
 )
