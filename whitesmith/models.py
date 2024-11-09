@@ -5,7 +5,7 @@ users = Table(
     "users",
     metadata,
     Column("id", Integer, primary_key="true"),
-    Column("Name", String(20)),
+    Column("name", String(20)),
     Column("email", String(50))
 
 
