@@ -2,10 +2,10 @@ import anthropic
 import spacy
 import os
 
-API_KEY = os.getenv("API_KEY")
+
 
 client = anthropic.Anthropic(
-    api_key= API_KEY
+    api_key= os.getenv("API_KEY")
 )
 
 
