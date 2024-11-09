@@ -14,7 +14,6 @@ client = anthropic.Anthropic(
 
 def createQuestion(theme, level):
 
-    message = None
 
     if (len(API_KEY) == 0):
         return "api key not defined."
@@ -47,5 +46,3 @@ def createQuestion(theme, level):
         print(response_text)
         return response_text
     
-
-print(createQuestion("Health", "B2"))
