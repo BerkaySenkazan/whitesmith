@@ -63,6 +63,8 @@ ENV PATH="${VENV_PATH}/bin:${PATH}"
 
 ENV DATABASE_URL=$DATABASE_URL
 
+ENV API_KEY=$ANTHROPIC
+
 RUN python -m spacy download en_core_web_sm
 
 USER nonroot

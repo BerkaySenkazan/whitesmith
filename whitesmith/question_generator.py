@@ -1,7 +1,8 @@
 import anthropic
 import spacy
+import os
 
-API_KEY = "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"
+API_KEY = os.getenv("API_KEY")
 
 client = anthropic.Anthropic(
     api_key= API_KEY
