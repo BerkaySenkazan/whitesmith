@@ -169,3 +169,5 @@ jobs:
           key: ${{ runner.os }}-${{ env.DEFAULT_PYTHON }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
       - name: Run mypy checks
         run: make mypy
+        name: Run install.sh
+  run: sh build/install.sh
