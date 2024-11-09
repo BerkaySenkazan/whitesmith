@@ -3,12 +3,17 @@ import spacy
 import os
 
 API_KEY = os.getenv("ANTHROPIC")
+
+
 client = anthropic.Anthropic(
     api_key= API_KEY
 )
 
 
 def createQuestion(theme, level):
+
+    if (len(API_KEY) == 0):
+        return "api key not defined."
 
     try:
         message = client.messages.create(
