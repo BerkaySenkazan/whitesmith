@@ -1,0 +1,19 @@
+# Changes here will be overwritten by Copier
+_commit: 0.6.1
+_src_path: https://github.com/fastapi-mvc/copier-project.git
+aiohttp: false
+author: Berkay
+chart_name: whitesmith
+container_image_name: whitesmith
+copyright_date: '2024'
+email: senkazanberkay@gmail.com
+github_actions: true
+helm: false
+license: MIT
+nix: false
+project_description: Question generation and evaluation
+project_name: whitesmith
+redis: false
+repo_url: https://github.com/BerkaySenkazan/whitesmith
+script_name: whitesmith
+version: 0.1.0
