@@ -65,6 +65,8 @@ ENV DATABASE_URL=$DATABASE_URL
 
 ENV API_KEY=$ANTHROPIC
 
+USER root
+
 RUN python -m spacy download en_core_web_sm
 
 USER nonroot
