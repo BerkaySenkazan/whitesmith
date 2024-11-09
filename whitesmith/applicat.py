@@ -1,9 +1,12 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 from .db import database
 from .models import users
 from contextlib import asynccontextmanager
 
-
+class User(BaseModel):
+    name: str
+    email: str
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -21,7 +24,7 @@ def read_root():
 
 
 @app.post("/users/")
-async def create_user(name: str, email: str):
-    query = users.insert().values(name=name, email=email)
+async def create_user(user: User):
+    query = users.insert().values(name=user.name, email=user.email)
     user_id = await database.execute(query)
-    return {"id": user_id, "name": name, "email": email}
+    return {"id": user_id, "name": user.name, "email": user.email}
