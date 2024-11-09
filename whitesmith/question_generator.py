@@ -16,6 +16,7 @@ def createQuestion(theme, level):
 
 
     if (len(API_KEY) == 0):
+        print("Error generating Question: API Problems")
         return "api key not defined."
 
     try:
@@ -37,8 +38,8 @@ def createQuestion(theme, level):
         ]
     )
 
-    except:
-        print("Error generating Question.")
+    except Exception as e:
+        print(f"Error generating Question. ${str(e)} ")
     finally:
 
         response_text = message.content[0].text
