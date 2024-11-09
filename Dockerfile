@@ -37,6 +37,8 @@ RUN apt-get update && \
 # Otherwise venv with source code would need to be copied to final image.
 COPY . $PYSETUP_PATH
 USER root
+COPY build/ $PYSETUP_PATH/build/
+WORKDIR $PYSETUP_PATH
 RUN chmod +x build/install.sh
 USER appuser 
 WORKDIR $PYSETUP_PATH
