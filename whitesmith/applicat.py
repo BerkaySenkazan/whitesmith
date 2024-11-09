@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from .db import database
 from .models import users
 from contextlib import asynccontextmanager
+from .question_generator import createQuestion
 
 class User(BaseModel):
     name: str
@@ -28,3 +29,7 @@ async def create_user(user: User):
     query = users.insert().values(name=user.name, email=user.email)
     user_id = await database.execute(query)
     return {"id": user_id, "name": user.name, "email": user.email}
+
+@app.get("/get_question")
+async def get_question(q_type, e_type):
+    return createQuestion("Vocabulary", "YDS")

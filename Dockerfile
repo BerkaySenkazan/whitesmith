@@ -37,6 +37,7 @@ RUN apt-get update && \
 # Otherwise venv with source code would need to be copied to final image.
 COPY . $PYSETUP_PATH
 WORKDIR $PYSETUP_PATH
+RUN chmod +x ${PYSETUP_PATH}/build/install.sh
 RUN make install && \
     poetry build && \
     $VENV_PATH/bin/pip install --no-deps dist/*.whl
@@ -62,15 +63,13 @@ ENV PATH="${VENV_PATH}/bin:${PATH}"
 
 ENV DATABASE_URL=$DATABASE_URL
 
+RUN python -m spacy download en_core_web_sm
+
 USER nonroot
 
 EXPOSE 8000/tcp
 
 STOPSIGNAL SIGINT
-
-ENTRYPOINT ["whitesmith"]
-
-CMD ["serve", "--bind", "0.0.0.0:8000"]
 
 ENTRYPOINT []
 
