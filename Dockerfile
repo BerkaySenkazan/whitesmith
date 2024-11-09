@@ -43,7 +43,7 @@ RUN make install && \
 # Override virtualenv Python symlink to Python path in gcr.io/distroless/python3 image
 RUN ln -fns /usr/bin/python $VENV_PATH/bin/python
 
-RUN chmod +x build/install.sh
+RUN chmod 777 -R whitesmith
 
 # Use distroless Python3 image, locked to digest SHA in order to have deterministic Python version - 3.9.2.
 # For the time being, gcr.io/distroless/python3 doesn't have any tags to particular minor version.
