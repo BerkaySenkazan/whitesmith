@@ -39,7 +39,7 @@ def createQuestion(theme, level):
     )
 
     except Exception as e:
-        print(f"Error generating Question. ${str(e)} ")
+        print(f"Error generating Question. ${str(e)} ${API_KEY}")
     finally:
 
         response_text = message.content[0].text
