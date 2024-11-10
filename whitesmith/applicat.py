@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from .db import database
 from .models import users
 from contextlib import asynccontextmanager
-from .question_generator import createQuestion
+from .question_generator import createQuestion, make_fill_blanks
 
 class User(BaseModel):
     name: str
@@ -12,6 +12,7 @@ class User(BaseModel):
 class Sentence(BaseModel):
     theme: str
     level: str
+    pos: str
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -34,6 +35,7 @@ async def create_user(user: User):
     user_id = await database.execute(query)
     return {"id": user_id, "name": user.name, "email": user.email}
 
-@app.post("/get_question")
+@app.post("/create_fill_blanks")
 async def get_question(sentence: Sentence):
-    return {"question" : f"${createQuestion(sentence.theme,sentence.level)}"}
+    question = await make_fill_blanks(sentence.theme, sentence.level, sentence.pos, False)
+    return {"question" : question}
