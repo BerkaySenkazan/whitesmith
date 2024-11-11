@@ -125,11 +125,3 @@ def make_fill_blanks(theme, cefr, pos, detailed):
     return {"question" : question, "answers": answ, "correct": correct}
 
 
-def test():
-
-    level = "C1"
-    q = make_fill_blanks("Politics, environment", level, "ADJ", False)
-
-    print(s_total_score(q["question"], level))
-
-test()
