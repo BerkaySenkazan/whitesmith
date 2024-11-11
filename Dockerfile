@@ -67,7 +67,7 @@ ENV API_KEY=$ANTHROPIC
 
 USER root
 
-RUN python -m spacy download en_core_web_sm
+RUN python -m spacy download en_core_web_md
 
 USER nonroot
 
