@@ -1,12 +1,12 @@
 import anthropic
 import spacy
+from whitesmith.difficulty import s_total_score
 import os
 import re
-from nltk.corpus import wordnet as wn
-from .difficulty import s_total_score
+
 
 ##API_KEY = os.getenv("ANTHROPIC")
-API_KEY = "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"
+API_KEY = "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"
 nlp = spacy.load("en_core_web_md")
 
 client = anthropic.Anthropic(
@@ -109,18 +109,8 @@ Ensure that the distractors do not fit the blank grammatically or semantically."
 
         return {"generated_answers": response_text}
 
-def generateDistractors(correct):
-    distractors = []
-    synsets = wn.synsets(correct)
-    if not synsets:
-        return distractors
 
-    for syn in synsets:
-        for lemma in syn.lemmas():
-            if lemma.name().lower() != correct.lower():
-                distractors.append(lemma.name().replace("_", " "))
-    
-    return list(set(distractors))
+
 
 def make_fill_blanks(theme, cefr, pos, detailed):
     q_sentence = createQuestion(theme, cefr, pos)
@@ -137,8 +127,10 @@ def make_fill_blanks(theme, cefr, pos, detailed):
 
 
 def test():
-    q = make_fill_blanks("Financial, positive, investing", "B2", "ADJ", False)
 
-    print(s_total_score(q["question"]))
+    level = "C1"
+    q = make_fill_blanks("Politics, environment", level, "ADJ", False)
+
+    print(s_total_score(q["question"], level))
 
 test()

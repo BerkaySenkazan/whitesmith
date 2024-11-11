@@ -18,7 +18,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-fastapi = "~0.98.0"
+fastapi = "^0.103.0"
 uvicorn = {extras = ["standard"], version = "~0.22.0"}
 gunicorn = "~20.1.0"
 click = "~8.1.3"
@@ -28,6 +28,11 @@ asyncpg = "^0.30.0"
 psycopg2-binary = "^2.9.10"
 anthropic = "^0.39.0"
 spacy = "^3.8.2"
+pydantic = "^1.10.12"
+textstat = "^0.7.4"
+pandas = "^2.2.3"
+termcolor = "^2.5.0"
+textacy = "^0.13.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "~7.4.0"

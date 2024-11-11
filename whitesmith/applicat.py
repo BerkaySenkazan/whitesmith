@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from .db import database
-from .models import users
+from whitesmith.db import database
+from whitesmith.models import users
 from contextlib import asynccontextmanager
-from .question_generator import createQuestion, make_fill_blanks
+from whitesmith.question_generator import createQuestion, make_fill_blanks
+import datetime
+
 
 class User(BaseModel):
     name: str
@@ -38,4 +40,6 @@ async def create_user(user: User):
 @app.post("/create_fill_blanks")
 async def get_question(sentence: Sentence):
     question = await make_fill_blanks(sentence.theme, sentence.level, sentence.pos, False)
-    return {"question" : question}
+    return {"question" : question, "time": datetime.datetime.now()}
+
+
