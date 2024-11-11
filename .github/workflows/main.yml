@@ -46,7 +46,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Init Poetry cache
         id: cached-poetry
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -64,7 +64,7 @@ jobs:
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ env.DEFAULT_PYTHON }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -87,7 +87,7 @@ jobs:
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ env.DEFAULT_PYTHON }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -108,7 +108,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -129,7 +129,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -146,7 +146,7 @@ jobs:
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ env.DEFAULT_PYTHON }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
@@ -163,7 +163,7 @@ jobs:
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
       - name: Load Poetry cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.POETRY_HOME }}
           key: ${{ runner.os }}-${{ env.DEFAULT_PYTHON }}-${{ hashFiles('./pyproject.toml') }}-${{ hashFiles('./poetry.lock') }}
