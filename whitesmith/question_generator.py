@@ -5,8 +5,7 @@ import os
 import re
 
 
-##API_KEY = os.getenv("ANTHROPIC")
-API_KEY = "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"
+API_KEY = os.getenv("ANTHROPIC")
 nlp = spacy.load("en_core_web_md")
 
 client = anthropic.Anthropic(
